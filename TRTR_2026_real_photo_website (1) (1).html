@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trail Run Tilas Romusa 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --forest:#0b2119;
+  --forest2:#173c2b;
+  --cream:#f2ead9;
+  --paper:#e7dcc5;
+  --orange:#c86c32;
+  --sand:#b99b6c;
+  --ink:#18251e;
+  --white:#fffaf0;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+
+/* ================= NAV ================= */
+nav{
+  position:fixed;
+  z-index:50;
+  top:0;left:0;width:100%;
+  padding:18px 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  color:white;
+  background:rgba(5,20,14,.72);
+  backdrop-filter:blur(14px);
+}
+.logo{
+  font-weight:800;
+  letter-spacing:1px;
+  line-height:1;
+}
+.logo small{
+  display:block;
+  margin-top:5px;
+  font-size:8px;
+  letter-spacing:3px;
+  color:#d8c6a1;
+}
+.links{
+  display:flex;
+  gap:26px;
+  font-size:12px;
+  font-weight:800;
+}
+.links a:hover{color:#e6a16a}
+.nav-register{
+  padding:11px 18px;
+  border-radius:100px;
+  background:var(--cream);
+  color:var(--forest);
+  font-size:12px;
+  font-weight:800;
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  color:white;
+  padding:150px 7% 90px;
+
+  /* LAUT + HUTAN + BUKIT / PANTAI */
+  background-image:
+    linear-gradient(90deg,rgba(4,19,13,.94) 0%,rgba(4,19,13,.78) 43%,rgba(4,19,13,.18) 100%),
+    url("https://images.pexels.com/photos/30325957/pexels-photo-30325957.jpeg?cs=srgb&dl=pexels-febrivsl-30325957.jpg&fm=jpg");
+  background-size:cover;
+  background-position:center;
+}
+
+/* Foto gunung/hutan sebagai layer di bagian kanan bawah */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(180deg,transparent 35%,rgba(4,20,13,.8) 100%),
+    url("https://images.pexels.com/photos/23692405/pexels-photo-23692405.jpeg?cs=srgb&dl=pexels-asemirski-23692405.jpg&fm=jpg");
+  background-size:cover;
+  background-position:center;
+  mix-blend-mode:multiply;
+  opacity:.62;
+}
+
+/* Tekstur tanah/batu */
+.hero::after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:-8%;
+  height:38%;
+  background-image:
+    linear-gradient(0deg,rgba(5,18,12,.98),rgba(5,18,12,.2)),
+    url("https://images.pexels.com/photos/12320161/pexels-photo-12320161.jpeg");
+  background-size:cover;
+  background-position:center;
+  opacity:.7;
+  clip-path:polygon(0 22%,8% 30%,17% 18%,27% 34%,37% 20%,48% 36%,58% 17%,68% 31%,80% 19%,91% 34%,100% 21%,100% 100%,0 100%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:3;
+  max-width:820px;
+}
+.eyebrow{
+  font-size:11px;
+  letter-spacing:5px;
+  font-weight:800;
+  color:#dfc69b;
+  margin-bottom:18px;
+}
+h1{
+  font-family:"Bebas Neue",sans-serif;
+  font-size:clamp(70px,11vw,150px);
+  line-height:.82;
+  font-weight:400;
+  letter-spacing:2px;
+}
+.hero-title2{color:#e8dfce}
+.script{
+  margin:20px 0;
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-size:24px;
+  color:#ead7b5;
+}
+.hero-copy{
+  max-width:650px;
+  color:#dce4dd;
+  font-size:17px;
+  line-height:1.7;
+}
+.hero-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+.meta{
+  min-width:145px;
+  padding:13px 17px;
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:12px;
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(4px);
+}
+.meta span{
+  display:block;
+  font-size:9px;
+  letter-spacing:2px;
+  color:#b8c6bb;
+}
+.meta b{
+  display:block;
+  margin-top:3px;
+  font-size:13px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:28px;
+  padding:15px 23px;
+  border-radius:100px;
+  background:var(--orange);
+  color:white;
+  font-size:13px;
+  font-weight:800;
+  transition:.2s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  filter:brightness(1.1);
+}
+
+/* ================= SECTIONS ================= */
+section{padding:95px 8%}
+.label{
+  font-size:11px;
+  letter-spacing:4px;
+  color:var(--orange);
+  font-weight:800;
+}
+h2{
+  margin:12px 0 25px;
+  font-family:"Bebas Neue";
+  font-size:64px;
+  line-height:.9;
+  font-weight:400;
+  letter-spacing:1px;
+}
+
+/* ================= ABOUT ================= */
+.about{background:var(--cream)}
+.about-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:65px;
+  align-items:center;
+}
+.about p{
+  margin-bottom:18px;
+  color:#465249;
+  font-size:17px;
+  line-height:1.8;
+}
+.quote{
+  margin-top:25px;
+  padding:10px 20px;
+  border-left:4px solid var(--orange);
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-size:22px;
+}
+.story-photo{
+  min-height:480px;
+  border-radius:8px;
+  position:relative;
+  overflow:hidden;
+  background-image:
+    linear-gradient(180deg,rgba(7,28,19,.05),rgba(7,28,19,.7)),
+    url("https://images.pexels.com/photos/15388094/pexels-photo-15388094.jpeg?cs=srgb&dl=pexels-sergk1-15388094.jpg&fm=jpg");
+  background-size:cover;
+  background-position:center;
+  box-shadow:14px 15px 0 rgba(35,55,42,.13);
+}
+.story-photo::after{
+  content:"SEA • FOREST • ROCK • MEMORY";
+  position:absolute;
+  left:25px;
+  bottom:25px;
+  color:white;
+  font-size:11px;
+  letter-spacing:3px;
+  font-weight:800;
+}
+
+/* ================= RACE ================= */
+.race{
+  background:var(--forest);
+  color:white;
+  position:relative;
+}
+.race-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  margin-top:40px;
+}
+.race-card{
+  padding:25px 18px;
+  border-right:1px solid rgba(255,255,255,.18);
+}
+.race-card:last-child{border:0}
+.icon{font-size:27px;margin-bottom:18px}
+.race-card span{
+  display:block;
+  color:#aabaae;
+  font-size:9px;
+  letter-spacing:2px;
+}
+.race-card b{
+  display:block;
+  margin-top:7px;
+  font-size:15px;
+}
+
+/* ================= EXPERIENCE ================= */
+.experience{background:var(--paper)}
+.exp-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:15px;
+  margin-top:40px;
+}
+.exp{
+  min-height:320px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:flex-end;
+  padding:22px;
+  border-radius:8px;
+  color:white;
+  background-size:cover;
+  background-position:center;
+}
+.exp::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(transparent 25%,rgba(4,19,13,.9));
+}
+.exp:nth-child(1){
+  background-image:url("https://images.pexels.com/photos/30325957/pexels-photo-30325957.jpeg?cs=srgb&dl=pexels-febrivsl-30325957.jpg&fm=jpg");
+}
+.exp:nth-child(2){
+  background-image:url("https://images.pexels.com/photos/23692405/pexels-photo-23692405.jpeg?cs=srgb&dl=pexels-asemirski-23692405.jpg&fm=jpg");
+}
+.exp:nth-child(3){
+  background-image:url("https://images.pexels.com/photos/15388094/pexels-photo-15388094.jpeg?cs=srgb&dl=pexels-sergk1-15388094.jpg&fm=jpg");
+}
+.exp:nth-child(4){
+  background:
+    linear-gradient(rgba(20,28,22,.35),rgba(20,28,22,.85)),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/31/Pantai_selatan.jpg");
+  background-size:cover;
+  background-position:center;
+}
+.exp:nth-child(5){
+  background-image:url("https://images.pexels.com/photos/12320161/pexels-photo-12320161.jpeg");
+}
+.exp-content{position:relative;z-index:2}
+.num{
+  font-family:"Bebas Neue";
+  font-size:42px;
+  color:#ead5ae;
+}
+.exp h3{font-size:19px;margin:7px 0}
+.exp p{font-size:13px;color:#dce5dd;line-height:1.55}
+
+/* ================= BENEFITS ================= */
+.benefits{background:var(--cream)}
+.benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  margin-top:40px;
+}
+.benefit{
+  padding:28px;
+  background:#f9f3e7;
+  border:1px solid #d9cfbc;
+  border-radius:12px;
+}
+.benefit b{font-size:16px}
+.benefit p{
+  margin-top:6px;
+  color:#69746c;
+  font-size:13px;
+}
+
+/* ================= ROUTE / LOCATION ================= */
+.route{
+  color:white;
+  background:var(--forest2);
+}
+.route-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+}
+.route p{
+  max-width:600px;
+  color:#d0dbd2;
+  line-height:1.8;
+}
+.location-photo{
+  height:420px;
+  border-radius:12px;
+  background-image:
+    linear-gradient(0deg,rgba(5,20,14,.5),rgba(5,20,14,.05)),
+    url("https://upload.wikimedia.org/wikipedia/commons/3/31/Pantai_selatan.jpg");
+  background-size:cover;
+  background-position:center 62%;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+/* ================= HISTORY ================= */
+.history{
+  position:relative;
+  color:#eee4d0;
+  background:
+    linear-gradient(rgba(23,24,19,.92),rgba(23,24,19,.94)),
+    url("https://images.pexels.com/photos/12320161/pexels-photo-12320161.jpeg");
+  background-size:cover;
+}
+.history-inner{
+  max-width:850px;
+  margin:auto;
+  text-align:center;
+}
+.history p{
+  color:#cfc5b1;
+  line-height:1.9;
+  font-size:16px;
+}
+.history .label{color:#d59a65}
+
+/* ================= REGISTER ================= */
+.register{
+  text-align:center;
+  color:white;
+  background:
+    linear-gradient(rgba(7,30,20,.88),rgba(7,30,20,.95)),
+    url("https://images.pexels.com/photos/30325957/pexels-photo-30325957.jpeg?cs=srgb&dl=pexels-febrivsl-30325957.jpg&fm=jpg");
+  background-size:cover;
+  background-position:center;
+}
+.register h2{font-size:75px}
+.register p{
+  max-width:650px;
+  margin:auto;
+  color:#d1ddd4;
+  line-height:1.7;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  padding:35px 8%;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:20px;
+  background:#07150f;
+  color:#b7c5bb;
+  font-size:12px;
+}
+footer strong{color:white}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:950px){
+  .links{display:none}
+  .about-grid,.route-grid{grid-template-columns:1fr}
+  .race-grid{grid-template-columns:repeat(3,1fr)}
+  .exp-grid{grid-template-columns:repeat(2,1fr)}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  nav{padding:17px 5%}
+  .nav-register{display:none}
+  section{padding:70px 6%}
+  .hero{padding:135px 6% 80px}
+  h1{font-size:70px}
+  .script{font-size:20px}
+  .race-grid,.exp-grid,.benefit-grid{grid-template-columns:1fr}
+  .race-card{
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.15);
+  }
+  .story-photo,.location-photo{min-height:360px;height:360px}
+  .register h2{font-size:58px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="#">
+    TRTR
+    <small>TRAIL RUN TILAS ROMUSA 2026</small>
+  </a>
+
+  <div class="links">
+    <a href="#about">ABOUT</a>
+    <a href="#race">RACE INFO</a>
+    <a href="#experience">EXPERIENCE</a>
+    <a href="#benefits">BENEFITS</a>
+    <a href="#history">HISTORY</a>
+  </div>
+
+  <a class="nav-register"
+     href="https://forms.gle/LjiZwX32LXEkYsu5A"
+     target="_blank">
+     REGISTER NOW →
+  </a>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-content">
+
+    <div class="eyebrow">TRAIL RUN • BAYAH • BANTEN</div>
+
+    <h1>
+      TRAIL RUN<br>
+      <span class="hero-title2">TILAS ROMUSA</span><br>
+      2026
+    </h1>
+
+    <div class="script">
+      Berlari Menjelajah, Mengenang Sejarah
+    </div>
+
+    <p class="hero-copy">
+      Sebuah perjalanan yang mempertemukan laut, hutan, tanah,
+      batu, perbukitan, petualangan, dan jejak sejarah di Bayah.
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta">
+        <span>RACE DAY</span>
+        <b>22 NOVEMBER 2026</b>
+      </div>
+      <div class="meta">
+        <span>START</span>
+        <b>06.00 WIB</b>
+      </div>
+      <div class="meta">
+        <span>DISTANCE</span>
+        <b>10K TRAIL RUN</b>
+      </div>
+      <div class="meta">
+        <span>LOCATION</span>
+        <b>PANTAI PULOMANUK</b>
+      </div>
+    </div>
+
+    <a class="btn"
+       href="https://forms.gle/LjiZwX32LXEkYsu5A"
+       target="_blank">
+       DAFTAR SEKARANG →
+    </a>
+
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="about-grid">
+
+    <div>
+      <div class="label">01 — ABOUT THE EVENT</div>
+      <h2>MORE THAN<br>JUST A RACE</h2>
+
+      <p>
+        Trail Run Tilas Romusa 2026 merupakan event olahraga
+        lari lintas alam yang memadukan tantangan olahraga,
+        keindahan alam, petualangan, nilai sejarah, dan potensi
+        sport tourism di Kecamatan Bayah.
+      </p>
+
+      <p>
+        Dengan lintasan 10 kilometer, peserta diajak untuk
+        menjelajahi alam, menghadapi tantangan, menikmati
+        perjalanan, sekaligus mengenang jejak sejarah yang
+        menjadi bagian dari identitas Tilas Romusa.
+      </p>
+
+      <div class="quote">
+        “Bukan sekadar berlari untuk mencapai garis akhir.
+        Ini adalah perjalanan untuk menjelajah dan mengenang.”
+      </div>
+    </div>
+
+    <div class="story-photo"></div>
+
+  </div>
+</section>
+
+<!-- ================= RACE INFO ================= -->
+<section class="race" id="race">
+
+  <div class="label">02 — RACE INFORMATION</div>
+  <h2>KNOW YOUR<br>RACE</h2>
+
+  <div class="race-grid">
+
+    <div class="race-card">
+      <div class="icon">🏃</div>
+      <span>DISTANCE</span>
+      <b>10 KM<br>TRAIL RUN</b>
+    </div>
+
+    <div class="race-card">
+      <div class="icon">🏆</div>
+      <span>CATEGORY</span>
+      <b>PUTRA & PUTRI</b>
+    </div>
+
+    <div class="race-card">
+      <div class="icon">⚑</div>
+      <span>FORMAT</span>
+      <b>OPEN<br>TOURNAMENT</b>
+    </div>
+
+    <div class="race-card">
+      <div class="icon">📅</div>
+      <span>DATE</span>
+      <b>22 NOVEMBER<br>2026</b>
+    </div>
+
+    <div class="race-card">
+      <div class="icon">⏱</div>
+      <span>START</span>
+      <b>06.00 WIB</b>
+    </div>
+
+    <div class="race-card">
+      <div class="icon">📍</div>
+      <span>LOCATION</span>
+      <b>PULOMANUK<br>BAYAH</b>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="experience" id="experience">
+
+  <div class="label">03 — RACE EXPERIENCE</div>
+  <h2>MORE THAN<br>JUST RUNNING</h2>
+
+  <div class="exp-grid">
+
+    <article class="exp">
+      <div class="exp-content">
+        <div class="num">01</div>
+        <h3>EXPLORE THE TRAIL</h3>
+        <p>
+          Menjelajahi lintasan alam dengan karakter dan
+          suasana yang berbeda.
+        </p>
+      </div>
+    </article>
+
+    <article class="exp">
+      <div class="exp-content">
+        <div class="num">02</div>
+        <h3>FACE THE CHALLENGE</h3>
+        <p>
+          Menghadapi setiap tantangan lintasan dengan
+          kekuatan dan ketahanan.
+        </p>
+      </div>
+    </article>
+
+    <article class="exp">
+      <div class="exp-content">
+        <div class="num">03</div>
+        <h3>FEEL THE NATURE</h3>
+        <p>
+          Menikmati keindahan alam dan suasana kawasan
+          sepanjang perjalanan.
+        </p>
+      </div>
+    </article>
+
+    <article class="exp">
+      <div class="exp-content">
+        <div class="num">04</div>
+        <h3>REMEMBER THE HISTORY</h3>
+        <p>
+          Mengenang jejak sejarah yang menjadi bagian
+          dari identitas Tilas Romusa.
+        </p>
+      </div>
+    </article>
+
+    <article class="exp">
+      <div class="exp-content">
+        <div class="num">05</div>
+        <h3>CROSS THE FINISH LINE</h3>
+        <p>
+          Menyelesaikan perjalanan dengan pengalaman
+          yang akan menjadi cerita.
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ================= BENEFITS ================= -->
+<section class="benefits" id="benefits">
+
+  <div class="label">04 — PARTICIPANT BENEFITS</div>
+  <h2>WHAT YOU<br>GET</h2>
+
+  <div class="benefit-grid">
+
+    <div class="benefit">
+      <b>🎫 BIB / NOMOR PESERTA</b>
+      <p>Nomor peserta untuk mengikuti race.</p>
+    </div>
+
+    <div class="benefit">
+      <b>🏅 MEDAL</b>
+      <p>Medali sebagai bagian dari perjalananmu.</p>
+    </div>
+
+    <div class="benefit">
+      <b>📜 E-CERTIFICATE</b>
+      <p>Sertifikat digital peserta.</p>
+    </div>
+
+    <div class="benefit">
+      <b>🎒 RACE PACK</b>
+      <p>Kelengkapan peserta sesuai ketentuan panitia.</p>
+    </div>
+
+    <div class="benefit">
+      <b>💧 WATER STATION</b>
+      <p>Dukungan hidrasi selama perjalanan.</p>
+    </div>
+
+    <div class="benefit">
+      <b>📸 DOCUMENTATION</b>
+      <p>Dokumentasi event.</p>
+    </div>
+
+    <div class="benefit">
+      <b>🌿 TRAIL EXPERIENCE</b>
+      <p>Pengalaman menjelajah alam Bayah.</p>
+    </div>
+
+    <div class="benefit">
+      <b>📖 HISTORY EXPERIENCE</b>
+      <p>Mengenang jejak sejarah Tilas Romusa.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="route" id="route">
+  <div class="route-grid">
+
+    <div>
+      <div class="label">05 — LOCATION</div>
+      <h2>SEA TO<br>FOREST TO<br>HISTORY</h2>
+
+      <p>
+        Kawasan Wisata Pantai Pulomanuk dan sekitarnya,
+        Kecamatan Bayah, Kabupaten Lebak, Banten.
+      </p>
+
+      <a class="btn"
+         href="https://www.google.com/maps/search/?api=1&query=Pantai+Pulomanuk+Bayah+Banten"
+         target="_blank">
+         BUKA GOOGLE MAPS →
+      </a>
+    </div>
+
+    <div class="location-photo"></div>
+
+  </div>
+</section>
+
+<!-- ================= HISTORY ================= -->
+<section class="history" id="history">
+  <div class="history-inner">
+
+    <div class="label">06 — THE STORY BEHIND THE TRAIL</div>
+    <h2>RUN THROUGH<br>A LIVING MEMORY</h2>
+
+    <p>
+      Tilas Romusa membawa olahraga dan sejarah ke dalam
+      satu perjalanan. Peserta tidak hanya melihat alam,
+      tetapi juga menjadi bagian dari pengalaman yang
+      menghubungkan tempat, perjalanan, dan ingatan.
+    </p>
+
+  </div>
+</section>
+
+<!-- ================= REGISTER ================= -->
+<section class="register" id="register">
+
+  <div class="label">07 — REGISTRATION</div>
+  <h2>READY TO RUN?</h2>
+
+  <p>
+    Your trail awaits. Daftarkan dirimu dan jadilah bagian
+    dari perjalanan untuk menjelajah alam dan mengenang sejarah.
+  </p>
+
+  <a class="btn"
+     href="https://forms.gle/LjiZwX32LXEkYsu5A"
+     target="_blank">
+     REGISTER NOW →
+  </a>
+
+</section>
+
+<footer>
+  <div>
+    <strong>TRAIL RUN TILAS ROMUSA 2026</strong><br>
+    Berlari Menjelajah, Mengenang Sejarah
+  </div>
+
+  <div>
+    Bayah, Kabupaten Lebak, Banten<br>
+    Zacky • 0895-1866-1882 &nbsp; | &nbsp;
+    Bayu • 0813-8614-7951
+  </div>
+</footer>
+
+</body>
+</html>
